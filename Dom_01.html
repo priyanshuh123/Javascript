@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+</head>
+<body>
+                   <h1>wellcome dom</h1>
+                <button id = "Btn" style="width: 100px; height: 50px; border: 5px; border-radius: 5px; color: white; background-color: black;" >click Now</button>
+</body>
+
+<script>
+        let btn = document.querySelector("#Btn");
+        let h1 = document.querySelector("h1")
+        btn.addEventListener("click", function(){
+            h1.innerText = "Hello Priyanshu";
+
+        });
+</script>
+</html>
