@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+  <h1>Hello Priyanshu</h1>
+  <p>Welcome to DOM Part 2</p>
+  <button>Click</button>
+</div>
+
+<script>
+                let p = document.querySelector("p");
+
+console.log(p.parentElement);            // div#main
+console.log(p.previousElementSibling);   // h1
+console.log(p.nextElementSibling);       // button
+console.log(p.parentElement.children);   // HTMLCollection of [h1, p, button]
+
+
+</script>
+</body>
+</html>
