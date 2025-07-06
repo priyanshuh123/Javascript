@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Async/Await Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #loading {
+      color: gray;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Random User Info</h1>
+  <button id="loadBtn">Get User</button>
+  <p id="loading"></p>
+  <h2 id="result"></h2>
+
+  <script>
+    const btn = document.getElementById("loadBtn");
+    const result = document.getElementById("result");
+    const loading = document.getElementById("loading");
+
+    btn.addEventListener("click", async () => {
+      loading.textContent = "Loading user data... ⏳";
+      result.textContent = "";
+
+      try {
+        let res = await fetch("https://randomuser.me/api/");
+        let data = await res.json();
+        let name = data.results[0].name;
+        result.textContent = `${name.title} ${name.first} ${name.last}`;
+        loading.textContent = "";
+      } catch (error) {
+        loading.textContent = "Failed to load user ❌";
+        console.error("Error:", error);
+      }
+    });
+  </script>
+
+</body>
+</html>
